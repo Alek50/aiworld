@@ -1,204 +1,47 @@
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI – Twój Przyjazny Asystent</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
-      color: #111;
-      font-size: 1.25rem;
-      line-height: 1.6;
-      padding: 0;
-      margin: 0;
-    }
-    header, footer {
-      background-color: #004aad;
-      color: white;
-      text-align: center;
-      padding: 1.5rem;
-    }
-    nav {
-      background-color: #007bff;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-      padding: 1rem;
-    }
-    nav a {
-      color: white;
-      background-color: #0056b3;
-      padding: 1rem 2rem;
-      border-radius: 1rem;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
-    main {
-      padding: 2rem;
-      max-width: 900px;
-      margin: auto;
-    }
-    section {
-      margin-bottom: 3rem;
-    }
-    h1, h2, h3 {
-      color: #004aad;
-    }
-    .highlight {
-      background-color: #e0f0ff;
-      border-left: 8px solid #004aad;
-      padding: 1rem;
-      margin-bottom: 1.5rem;
-      border-radius: 1rem;
-    }
-    .button-large {
-      display: inline-block;
-      background-color: #28a745;
-      color: white;
-      padding: 1rem 2rem;
-      font-size: 1.5rem;
-      border: none;
-      border-radius: 1rem;
-      text-decoration: none;
-      margin-top: 1rem;
-    }
-    .accessibility {
-      font-size: 1.1rem;
-      color: #333;
-      margin-top: 2rem;
-    }
-    .read-aloud {
-      margin-top: 1rem;
-      background-color: #ffc107;
-      border: none;
-      border-radius: 1rem;
-      padding: 1rem;
-      font-size: 1.2rem;
-      cursor: pointer;
-    }
-    .game-container {
-      margin-top: 2rem;
-      background: #fff;
-      border-radius: 1rem;
-      padding: 2rem;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    .easy-read {
-      background-color: #ffffcc;
-      padding: 1rem;
-      border-radius: 1rem;
-      font-size: 1.3rem;
-      margin-top: 1rem;
-    }
-  </style>
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="manifest" href="manifest.json">
+  <script src="scripts/script.js" defer></script>
 </head>
 <body>
   <header>
     <h1>AI – Twój Przyjazny Asystent</h1>
-    <p>Pomagamy osobom z trudnościami w nauce i rozumieniu</p>
-    <button class="read-aloud" onclick="readPage()">🔊 Odsłuchaj stronę</button>
+    <nav>
+      <a href="memory.html">🎮 Memory</a>
+      <a href="milionerzy.html">🎓 Milionerzy</a>
+      <a href="kolorowanka.html">🖌️ Kolorowanka</a>
+      <a href="emocje.html">😊 Emocje</a>
+      <a href="ksztalty.html">🔷 Kształty</a>
+      <a href="sortowanie.html">🍏 Sortowanie</a>
+      <a href="quiz_obrazkowy.html">🖼️ Quiz Obrazkowy</a>
+      <a href="puzzle.html">🧩 Puzzle</a>
+      <a href="kalendarz.html">📅 Harmonogram dnia</a>
+      <a href="swieta.html">🎉 Święta i zwyczaje</a>
+      <a href="panel_opiekuna.html">👨‍👩‍👧 Panel opiekuna</a>
+    </nav>
+    <div class="lang-switcher">
+      <button onclick="setLang('pl')">PL</button>
+      <button onclick="setLang('en')">EN</button>
+      <button onclick="setLang('ua')">UA</button>
+    </div>
   </header>
 
-  <nav>
-    <a href="#porady">Porady</a>
-    <a href="#cwiczenia">Ćwiczenia</a>
-    <a href="#gra">Gra</a>
-    <a href="memory.html">🎮 Memory</a>
-    <a href="milionerzy.html">🎓 Milionerzy</a>
-    <a href="#pomocnicy">Pomocnicy</a>
-    <a href="#dla-opiekunow">Dla Opiekunów</a>
-    <a href="#kontakt">Kontakt</a>
-  </nav>
-
   <main>
-    <section id="porady">
-      <h2>✅ Proste Porady</h2>
-      <div class="highlight">
-        <p>Dowiedz się, jak poradzić sobie z codziennymi zadaniami:</p>
-        <ul>
-          <li>Jak zrobić zakupy</li>
-          <li>Jak korzystać z autobusu</li>
-          <li>Jak powiedzieć, że czegoś potrzebujesz</li>
-        </ul>
-      </div>
-      <div class="easy-read">
-        <p>Pomagamy Ci lepiej zrozumieć świat.</p>
-        <p>Uczysz się krok po kroku.</p>
-      </div>
-    </section>
-
-    <section id="cwiczenia">
-      <h2>🧠 Ćwiczenia dla Umysłu</h2>
-      <p>Ćwicz pamięć i myślenie z naszymi prostymi zabawami:</p>
-      <ul>
-        <li>Dopasowywanie obrazków</li>
-        <li>Kolorowe zgadywanki</li>
-        <li>Gry z kształtami</li>
-      </ul>
-      <a href="#gra" class="button-large">Zagraj teraz</a>
-    </section>
-
-    <section id="gra" class="game-container">
-      <h2>🧩 Prosta Gra: Dopasuj Kolory</h2>
-      <p>Wybierz, który kolor pasuje do obrazka.</p>
-      <button onclick="alert('Super! To był dobry wybór!')">🔵 Niebieski</button>
-      <button onclick="alert('Spróbuj jeszcze raz.')">🟢 Zielony</button>
-    </section>
-
-    <section id="pomocnicy">
-      <h2>🧍‍♀️🧍‍♂️ Pomocnicy AI</h2>
-      <p>Możesz porozmawiać z naszym pomocnikiem:</p>
-      <ul>
-        <li><a href="tel:123456789">📞 Zadzwoń</a></li>
-        <li><a href="mailto:pomoc@ai.org">📧 Napisz wiadomość</a></li>
-      </ul>
-    </section>
-
-    <section id="dla-opiekunow">
-      <h2>👨‍👩‍👧 Dla Opiekunów i Rodziny</h2>
-      <p>Pomocne materiały dla rodziców i opiekunów:</p>
-      <ul>
-        <li>Poradniki PDF</li>
-        <li>Historie innych rodzin</li>
-        <li>Lista miejsc, gdzie można uzyskać wsparcie</li>
-      </ul>
-      <a href="#" class="button-large">Zobacz więcej</a>
-    </section>
-
-    <section class="accessibility">
-      <h3>🔊 Ułatwienia</h3>
-      <ul>
-        <li>Możliwość odsłuchania tekstu</li>
-        <li>Duże litery i czytelne fonty</li>
-        <li>Kolory o wysokim kontraście</li>
-        <li>Duże, łatwe w klikaniu przyciski</li>
-      </ul>
-    </section>
-
-    <section id="kontakt">
-      <h2>📞 Skontaktuj się z Nami</h2>
-      <p><strong>Telefon:</strong> <a href="tel:123456789">123 456 789</a></p>
-      <p><strong>E-mail:</strong> <a href="mailto:pomoc@ai.org">pomoc@ai.org</a></p>
-      <p><strong>Adres:</strong> ul. Dobrego Serca 10, Warszawa</p>
+    <section>
+      <h2>Witamy w AI – Twoim Przyjaznym Asystencie!</h2>
+      <p>To bezpieczna, prosta i kolorowa strona z grami i ćwiczeniami dla każdego.</p>
+      <button onclick="readPage()">🔊 Odsłuchaj stronę</button>
     </section>
   </main>
 
   <footer>
     <p>&copy; 2025 AI – Twój Przyjazny Asystent</p>
   </footer>
-
-  <script>
-    function readPage() {
-      const text = document.body.innerText;
-      const synth = window.speechSynthesis;
-      const utter = new SpeechSynthesisUtterance(text);
-      utter.lang = 'pl-PL';
-      synth.speak(utter);
-    }
-  </script>
 </body>
 </html>
